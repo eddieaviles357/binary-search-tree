@@ -1,3 +1,5 @@
+const Stack = require('./stack');
+
 class Node {
   constructor(val, left = null, right = null) {
     this.val = val;
@@ -69,7 +71,7 @@ class BinarySearchTree {
 
   find(val) {
     let curr = this.root;
-    
+
     while(curr) {
       // found node or node not found
       if(val === curr.val || !curr) break;
@@ -95,9 +97,13 @@ class BinarySearchTree {
   /** dfsPreOrder(): Traverse the array using pre-order DFS.
    * Return an array of visited nodes. */
 
-  // dfsPreOrder() {
+  dfsPreOrder(visited = [], curr = this.root) {
+    visited.push(curr.val);
 
-  // }
+    if(curr.left) this.dfsPreOrder(visited, curr.left);
+    if(curr.right) this.dfsPreOrder(visited, curr.right);
+    return visited;
+  }
 
   /** dfsInOrder(): Traverse the array using in-order DFS.
    * Return an array of visited nodes. */

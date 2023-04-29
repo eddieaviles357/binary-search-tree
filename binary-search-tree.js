@@ -1,4 +1,3 @@
-const Stack = require('./stack');
 
 class Node {
   constructor(val, left = null, right = null) {
@@ -108,9 +107,17 @@ class BinarySearchTree {
   /** dfsInOrder(): Traverse the array using in-order DFS.
    * Return an array of visited nodes. */
 
-  // dfsInOrder() {
+  dfsInOrder(visited = [], curr = this.root) {
 
-  // }
+    function inOrder(node) {
+      if(node.left) inOrder(node.left);
+      visited.push(node.val)
+      if(node.right) inOrder(node.right);
+    };
+
+    inOrder(curr);
+    return visited;
+  }
 
   /** dfsPostOrder(): Traverse the array using post-order DFS.
    * Return an array of visited nodes. */
@@ -149,5 +156,26 @@ class BinarySearchTree {
     
   // }
 }
-
+// let binarySearchTree = new BinarySearchTree();
+// binarySearchTree
+// .insert(15)
+// .insert(20)
+// .insert(10)
+// .insert(12)
+// .insert(1)
+// .insert(5)
+// .insert(50);
+// binarySearchTree.dfsInOrder()
+/**
+ *       15
+ *      /  \
+ *     10  20
+ *    /  \   \
+ *   1   12  50
+ *    \
+ *    5
+ * 
+ * 
+ * 
+ */
 module.exports = BinarySearchTree;

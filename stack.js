@@ -39,7 +39,7 @@ class Node {
   
     pop() {
       let popped = null;
-      if(this.first === null || this.size === 0 || this.last === null) throw new Error('Stack is empty!');
+      if(this.first === null) throw new Error('Stack is empty!');
       popped = this.first; // to be removed from top of stack
       this.first = this.first.next; // assign new top of stack
       popped.next = null; // remove reference to next
@@ -50,14 +50,14 @@ class Node {
     /** peek(): return the value of the first node in the stack. */
   
     peek() {
-      if(this.first === null || this.last === null || this.length === 0) return;
+      if(this.first === null) return;
       return this.first.val;
     }
   
     /** isEmpty(): return true if the stack is empty, otherwise false */
   
     isEmpty() {
-      return (this.first === null || this.last === null || this.length === 0) ? true : false;
+      return (this.first === null) ? true : false;
     }
   };
   

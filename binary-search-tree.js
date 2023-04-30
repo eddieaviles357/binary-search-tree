@@ -1,3 +1,4 @@
+const Queue = require('./queue');
 
 class Node {
   constructor(val, left = null, right = null) {
@@ -136,9 +137,9 @@ class BinarySearchTree {
   /** bfs(): Traverse the array using BFS.
    * Return an array of visited nodes. */
 
-  // bfs() {
+  bfs() {
 
-  // }
+  }
 
   /** Further Study!
    * remove(val): Removes a node in the BST with the value val.
@@ -181,8 +182,5 @@ class BinarySearchTree {
  *   1   12  50
  *    \
  *    5
- * 
- * 
- * 
  */
 module.exports = BinarySearchTree;

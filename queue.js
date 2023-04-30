@@ -1,6 +1,6 @@
 /** Node: node for a queue. */
 
-class Node {
+class QNode {
     constructor(val) {
       this.val = val;
       this.next = null;
@@ -22,12 +22,12 @@ class Node {
     enqueue(val) {
       // queue is empty
       if(this.first === null && this.size === 0) {
-        this.first = this.last = new Node(val);
+        this.first = this.last = new QNode(val);
         this.size++;
         return;
       };
       // add queued value to end of queue
-      this.last.next = new Node(val);
+      this.last.next = new QNode(val);
       this.last = this.last.next;
       this.size++;
       return;
